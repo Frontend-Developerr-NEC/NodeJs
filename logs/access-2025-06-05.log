@@ -1,0 +1,4 @@
+{"timestamp":"2025-06-05T15:49:51.252Z","ip":"::1","method":"GET","url":"/","status":"200","responseTime":"2.208 ms","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"},
+
+{"timestamp":"2025-06-05T15:49:51.275Z","ip":"::1","method":"GET","url":"/favicon.ico","status":"404","responseTime":"2.432 ms","userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"},
+

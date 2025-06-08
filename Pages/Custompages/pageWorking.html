@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pending</title>
+  </head>
+  <style>
+    main {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0%;
+      bottom: 0%;
+      left: 0%;
+      right: 0%;
+    }
+    #img503 {
+      width: 200px;
+      height: 250px;
+    }
+
+    header {
+      height: 55px;
+      width: 100%;
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      right: 0%;
+      padding: 15px;
+      border: 2px solid;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: aqua;
+      color: black;
+      z-index: 99999;
+    }
+
+    header > button {
+      position: fixed;
+      top: 30px;
+      right: 25px;
+      width: max-content;
+      height: max-content;
+      padding: 8px;
+    }
+
+    .closebtn {
+      position: fixed;
+      top: 25px;
+      width: max-content;
+      height: max-content;
+      padding: 7px;
+      z-index: 99999;
+      font-size: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 25px;
+    }
+
+    .openNav {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 100ms linear;
+      background-color: transparent;
+      backdrop-filter: blur(5px);
+    }
+
+    .openNav > ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .openNav > ul > a {
+      text-decoration: none;
+    }
+
+    nav {
+      position: fixed;
+      top: 50%;
+      left: -50%;
+      transform: translateX(-50%) translateY(-50%);
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: all 100ms linear;
+    }
+
+    nav > ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+      font-size: 24px;
+      padding: 0%;
+    }
+
+    nav > ul > a {
+      text-decoration: none;
+      font-size: 20px;
+      color: black;
+      z-index: 99999;
+      background-color: aliceblue;
+      height: max-content;
+      width: 100%;
+      text-align: center;
+      border-radius: 15px;
+      box-shadow: 1px 1px 15px salmon;
+      padding: 8px;
+    }
+
+    #accountInfo {
+      position: absolute;
+      bottom: 25px;
+    }
+
+    #logout {
+      font-size: 20px;
+      color: rgb(214, 213, 213);
+      background-color: rgb(255, 0, 0);
+      width: max-content;
+      height: max-content;
+      padding: 10px;
+      border-radius: 15px;
+      letter-spacing: 3px;
+      font-weight: 900;
+      box-shadow: 1px 1px 15px rgb(0, 0, 0);
+    }
+  </style>
+  <body>
+    <main>
+      <header>
+        <h3>DevOps</h3>
+        <button
+          type="button"
+          id="closebtn"
+          style="right: 15px"
+          class="closebtn"
+        >
+          <img
+            id="closebtnImg"
+            src="./ico/home.png"
+            height="22px"
+            width="22px"
+          />
+        </button>
+        <nav class="closeNav">
+          <ul>
+            <a href="/index">Home</a>
+            <a href="">Projects</a>
+            <a href="/links">Links</a>
+            <a href="/about">About</a>
+          </ul>
+          <ul id="accountInfo">
+            <a href="/" id="logout">Logout</a>
+          </ul>
+        </nav>
+      </header>
+      <img id="img503" src="./img/503.jpg" />
+      <h3>Page Under Construction!...</h3>
+    </main>
+    <script>
+      async function Context() {
+  window.addEventListener("contextmenu", (e) => {
+    console.log("Inspect Buton Blocked");
+    e.preventDefault();
+  });
+}
+Context();
+      const login = localStorage.getItem("loginAccess");
+
+      if (login === "true") {
+        // alert("true")
+        window.location.replace = "/index";
+      } else {
+        window.location.href = "/signup";
+      }
+
+      let closebtn = document.getElementById("closebtn");
+      let closebtnImg = document.getElementById("closebtnImg");
+      let closeNav = document.querySelector("nav");
+
+      closebtn.addEventListener("click", () => {
+        closeNav.classList.toggle("openNav");
+
+        if (closeNav.className == "closeNav") {
+          // alert("close");
+          closebtnImg.setAttribute("src", "./ico/home.png");
+          closebtnImg.setAttribute("height", "22px");
+          closebtnImg.setAttribute("width", "22px");
+        } else {
+          // alert("Open");
+          closebtnImg.setAttribute("src", "./ico/close.png");
+          closebtnImg.setAttribute("height", "22px");
+          closebtnImg.setAttribute("width", "22px");
+        }
+      });
+
+      const logout = document.getElementById("logout");
+      logout.addEventListener("click", (e) => {
+        e.preventDefault();
+        localStorage.setItem("loginAccess", "false");
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>
